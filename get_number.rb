@@ -19,24 +19,27 @@ num_guesses = 0
 # A sign of the continuation of the game.
 guessed_it = false
 
-puts "You've got #{10 - num_guesses} guesses left."
-print "Make a guess: "
-guess = gets.to_i
+until num_guesses == 10 || guessed_it
+  puts "You've got #{10 - num_guesses} guesses left."
+  print "Make a guess: "
+  guess = gets.to_i
 
-# Comparison of the entered number with the concealed 
-# and output of the corresponding message.
-if guess < target
-	puts "Oops. Your guess was LOW."
-elsif guess > target
-	puts "Oops. Your guess was HIGH."
-elsif guess == target
-	puts "Good job, #{name}!"
-	puts "You guessed my number in #{num_guesses} guesses!"
-	guessed_it = true
+  num_guesses += 1
+
+  # Comparison of the entered number with the concealed
+  # and output of the corresponding message.
+  if guess < target
+    puts "Oops. Your guess was LOW."
+  elsif guess > target
+    puts "Oops. Your guess was HIGH."
+  elsif guess == target
+    puts "Good job, #{name}!"
+    puts "You guessed my number in #{num_guesses} guesses!"
+    guessed_it = true
+  end
 end
 
 # If there is no attempt, tell the number.
 unless guessed_it
-	puts "Sorry. You didn't get my number. It was #{target}."
+  puts "Sorry. You didn't get my number. It was #{target}."
 end
-
