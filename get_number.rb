@@ -36,7 +36,7 @@ elsif guess == target
 end
 
 # If there is no attempt, tell the number.
-if not guessed_it
+unless guessed_it
 	puts "Sorry. You didn't get my number. It was #{target}."
 end
-		
+
