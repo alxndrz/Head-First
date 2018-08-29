@@ -11,6 +11,15 @@ end
 class Dog
   attr_accessor :name, :age
 
+  def name=(value)
+    raise "Name can't be blank!" if value == ''
+    @name = value
+  end
+  def age=(value)
+    raise "An age of #{value} isn't valid!" if value == < 0
+    @name = value
+  end
+
   def report_age
     puts "#{name} is #{age} years old."
   end
@@ -20,7 +29,7 @@ class Dog
   end
 
   def move(destination)
-    puts "Running to the #{destination}."
+    puts "#{name} running to the #{destination}."
   end
 end
 
@@ -34,11 +43,9 @@ class Cat
   end
 end
 
-bird = Bird.new
 dog = Dog.new
-cat = Cat.new
-
-bird.move 'tree'
+dog.name = 'Daisy'
+dog.age = 3
+dog.report_age
 dog.talk
-bird.talk
-cat.move 'house'
+dog.move 'bed'
