@@ -9,6 +9,12 @@ class Bird
 end
 
 class Dog
+  attr_accessor :name, :age
+
+  def report_age
+    puts "#{name} is #{age} years old."
+  end
+
   def talk
     puts 'Bark!'
   end
